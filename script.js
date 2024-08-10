@@ -42,3 +42,38 @@ let prevBtn = document.querySelector("#prev-btn");
 let nextBtn = document.querySelector("#next-btn");
 
 let randBtn = document.querySelector("#rand-btn");
+
+let currValue = 2;
+
+window.addEventListener("DOMContentLoad", () => {
+  display();
+});
+
+function display() {
+  let update = reviews[currValue];
+  images.src = update.img;
+  name.textContent = update.name;
+  position.textContent = update.job;
+  discription.textContent = update.text;
+}
+
+nextBtn.addEventListener("click", () => {
+  currValue++;
+  if (currValue > reviews.length - 1) {
+    currValue = 0;
+  }
+  display(currValue);
+});
+
+prevBtn.addEventListener("click", () => {
+  currValue--;
+  if (currValue < 0) {
+    currValue = reviews.length - 1;
+  }
+  display(currValue);
+});
+
+randBtn.addEventListener("click", () => {
+  currValue = Math.floor(Math.random() * reviews.length);
+  display(currValue);
+});
