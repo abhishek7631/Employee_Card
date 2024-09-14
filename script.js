@@ -79,8 +79,3 @@ randBtn.addEventListener("click", () => {
 });
 
 // this is extra code .....
-
-randBtn.addEventListener("click", () => {
-  currValue = Math.floor(Math.random() * reviews.length);
-  display(currValue);
-});
